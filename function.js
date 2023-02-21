@@ -23,8 +23,7 @@ const function2 =()=>(
         <h2>Footer</h2>
     </div>
 )
-
-const root=ReactDom.createRoot(document.getElementById("root");
+const root=ReactDOM.createRoot(document.getElementById("root"));
 root.render(heading) //if we want to render react element 
 
 root.render(<function1/>) // if we want to render the functional component
