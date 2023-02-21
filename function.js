@@ -10,6 +10,7 @@ const function1 =()=>{
     )
 }
 
+
 const function2 =()=>(
     <div>
         <h1>Header</h1>
