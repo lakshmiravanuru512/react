@@ -2155,8 +2155,8 @@ const restaurentList=
 
    
 
-const RestaurentCard=({restaurant})=>{
-    const{name, cloudinaryImageId,cuisines,lastMileTravel}=restaurant.data;
+const RestaurentCard=({name, cloudinaryImageId,cuisines,lastMileTravel})=>{
+   
     return (
         <div className="cart">
            <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"
@@ -2170,12 +2170,12 @@ const RestaurentCard=({restaurant})=>{
 
 const Body=()=>{
      return <div className="resto-list">
-        <RestaurentCard  restaurant={restaurentList[0]}/>
-        <RestaurentCard  restaurant={restaurentList[1]}/>
-        <RestaurentCard  restaurant={restaurentList[2]}/>
-        <RestaurentCard  restaurant={restaurentList[3]}/>
-        <RestaurentCard  restaurant={restaurentList[4]}/>
-        <RestaurentCard  restaurant={restaurentList[5]}/>
+        {
+            restaurentList.map((restaurant)=>{
+               return <RestaurentCard  {...restaurant.data } key={restaurant.data.id}/>  
+            })
+        }
+        
        </div>
     
      }
