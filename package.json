@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "practice",
   "scripts": {
-    "start": "parcel index1react.html",
-    "build": "parcel build index1react.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "author": "Lakshmi",

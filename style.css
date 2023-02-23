@@ -1,3 +1,38 @@
 #container{
     background-color: skyblue;
 }
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.nav-items>ul{
+    list-style-type: none;
+    display: flex;
+
+}
+.nav-items>ul>li{
+    padding: 10px;
+}
+
+.logo{
+    width: 70px;
+    height: 70px;
+}
+
+.cart{
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+}
+.cart > img{
+  width: 100%;
+}
+.resto-list{
+    display: flex;
+    flex-wrap: wrap;
+}
