@@ -1,7 +1,3 @@
-#container{
-    background-color: skyblue;
-}
-
 .header{
     display: flex;
     justify-content: space-between;
