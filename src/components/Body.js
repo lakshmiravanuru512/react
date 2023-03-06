@@ -1,6 +1,6 @@
 import {restaurentList} from "../constants"
 import RestaurentCard from "./RestaurantCard";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 
 function filterData(searchText,restaurant){
@@ -10,7 +10,11 @@ return restaurant.filter((restaurant)=>restaurant.data.name.includes(searchText)
 const Body=()=>{
     const[restaurent,setRestaurents]=useState(restaurentList)
     const[searchText,setSearchText]=useState("")
-    
+
+    useEffect(()=>{
+        console.log("useEffect will be called")
+    },[searchText])
+    console.log("render");
     return (
         <>
         <div className="search-container">
