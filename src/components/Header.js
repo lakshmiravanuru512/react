@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export const Title=()=>(
     <a href="/">
         <img
@@ -8,10 +10,14 @@ export const Title=()=>(
 );
 
 const  Header=()=>{
+    
+    const[title, setTitle]=useState("VillaFood")
     return(
         
         <div className="header">
             <Title />
+            <h1>{title}</h1>
+            <button onClick={()=>setTitle("FoodVilla")}>change</button>
             <div className="nav-items">
                 <ul>
                     <li>Home</li>
