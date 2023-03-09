@@ -1,17 +1,23 @@
 import { useState } from "react";
+import Logo from "../assets/image/foodvilla.png"
 
-export const Title=()=>(
+const loggedInUser=()=>{
+    //API call to check authentication
+    return false;
+}
+
+const Title=()=>(
     <a href="/">
         <img
     className="logo"
      alt="logo"
-     src="https://th.bing.com/th/id/R.af5a39ced19e54077c1a274b7fbb148a?rik=AzowjuDH8gZAsw&riu=http%3a%2f%2fvillafood.it%2fsites%2fall%2fthemes%2fvillafood%2fimages%2flogo-villa-food.png&ehk=kgJImOzze%2bJNfc21PbTzzP5cF5%2bwaXDHIvQJnSYd6so%3d&risl=&pid=ImgRaw&r=0"/>
+     src={Logo}/>
      </a>
 );
 
 const  Header=()=>{
     
-    
+    const[isLoggedIn,setIsLoggedIn]=useState(false);
     return(
         
         <div className="header">
@@ -25,7 +31,15 @@ const  Header=()=>{
                     <li>Cart</li>
                 </ul>
                 </div>
+                {
+            (isLoggedIn)?  <button onClick={()=>setIsLoggedIn(false)}>Logout</button> :
+             <button onClick={()=>setIsLoggedIn(true)}>Login</button>
+        }
         </div>
+       
+       
+       
+       
     );
   };
 

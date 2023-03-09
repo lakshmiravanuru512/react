@@ -31,7 +31,7 @@ const Body=()=>{
     //not render component(early return)
     if(!allRestaurents) return null;
     
-    if(filteredRestaurents?.length===0) return <h1>No Restaurents Avaliable</h1>
+   
    
 
     return (allRestaurents?.length===0) ? <Shimmer/> :(
@@ -55,11 +55,8 @@ const Body=()=>{
             
              }}>Seach</button>
             </div>
-    <div className="resto-list">
-    
-       {
-         
-        filteredRestaurents.map((restaurant)=>{
+    <div className="resto-list">{
+         filteredRestaurents.map((restaurant)=>{
               return <RestaurentCard  {...restaurant.data } key={restaurant.data.id}/>  
            })
        }
