@@ -5,11 +5,12 @@ import Shimmer from "./Shimmer";
 
 
 function filterData(searchText,restaurant){
-return restaurant.filter((restaurant)=>restaurant.data.name.includes(searchText))
+return restaurant.filter((restaurant)=>restaurant?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase()))
 }
 
 const Body=()=>{
-    const[restaurent,setRestaurents]=useState([])
+    const[allRestaurents, setAllRestaurents]=useState([]);
+    const[filteredRestaurents,setFilteredRestaurents]=useState([]);
     const[searchText,setSearchText]=useState("")
 
     useEffect(()=>{
@@ -22,10 +23,18 @@ const Body=()=>{
         console.log(json);
 
         //Optional Chaining
-        setRestaurents(json?.data?.cards[2]?.data.data.cards);
+        setAllRestaurents(json?.data?.cards[2]?.data.data.cards);
+        setFilteredRestaurents(json?.data?.cards[2]?.data.data.cards);
     }
     console.log("render");
-    return (restaurent.length===0) ? <Shimmer/> :(
+
+    //not render component(early return)
+    if(!allRestaurents) return null;
+    
+    if(filteredRestaurents?.length===0) return <h1>No Restaurents Avaliable</h1>
+   
+
+    return (allRestaurents?.length===0) ? <Shimmer/> :(
         <>
         <div className="search-container">
             <input 
@@ -41,15 +50,16 @@ const Body=()=>{
              
              <button className="search-btn"
              onClick={()=>{
-               const data=filterData(searchText,restaurent);
-               setRestaurents(data);
+               const data=filterData(searchText,allRestaurents);
+               setFilteredRestaurents(data);
             
              }}>Seach</button>
             </div>
     <div className="resto-list">
+    
        {
-        
-        restaurent.map((restaurant)=>{
+         
+        filteredRestaurents.map((restaurant)=>{
               return <RestaurentCard  {...restaurant.data } key={restaurant.data.id}/>  
            })
        }
