@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Logo from "../assets/image/foodvilla.png"
+import {Link} from "react-router-dom";
 
 const loggedInUser=()=>{
     //API call to check authentication
@@ -25,8 +26,12 @@ const  Header=()=>{
             
             <div className="nav-items">
                 <ul>
+                    <Link to="/home">
                     <li>Home</li>
+                    </Link>
+                    <Link to="/about">
                     <li>About</li>
+                    </Link>
                     <li>Contact</li>
                     <li>Cart</li>
                 </ul>
