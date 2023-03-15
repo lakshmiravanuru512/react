@@ -19,7 +19,7 @@ const useOnline=()=>{
             window.removeEventListener("online",handleIsOnline)
             window.removeEventListener("offline",handleIsOffline)
         }
-    })
+    },[])
     return isOnline;
 }
 
