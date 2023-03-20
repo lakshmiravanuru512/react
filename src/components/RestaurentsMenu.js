@@ -9,7 +9,7 @@ const RestaurentMenu=()=>{
     const restaurant=useRestaurant(id);
     
     return (!restaurent)? <Shimmer/> : (
-        <div className="menu">
+        <div className="menu ">
             <div>
             <h1>Restaurent id:{id}</h1>
             <h2>{restaurent?.name}</h2>

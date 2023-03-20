@@ -1,44 +1,12 @@
-.header{
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-    border: 1px solid black;
-}
+/*Normal native css
+// scss 
+// inline css
+// component libraries - Material UI , Base UI, Ant, chakra
+// styled components
+//TailWind css frameWork  */
 
-.nav-items>ul{
-    list-style-type: none;
-    display: flex;
 
-}
-.nav-items>ul>li{
-    padding: 10px;
- 
-}
 
-.logo{
-    width: 70px;
-    height: 70px;
-}
-
-.cart{
-    width: 200px;
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid black;
-}
-.cart > img{
-  width: 100%;
-}
-.resto-list{
-    display: flex;
-    flex-wrap: wrap;
-}
-.shimmerCard{
-    width: 200px;
-    height: 200px;
-    background-color: lightgray;
-    margin: 20px;
-}
-.menu{
-    display: flex;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
