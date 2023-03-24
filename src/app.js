@@ -13,7 +13,9 @@ import Contact from "./components/Contact";
 import RestaurentMenu from "./components/RestaurentsMenu"
 import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
+import { Provider } from "react-redux";
 //import Instamart from "./components/Instamart";
+import store from "./utils/store";
 
 
   const Instamart=lazy(()=>
@@ -25,12 +27,14 @@ import Shimmer from "./components/Shimmer";
   })
        
   const AppLayout=()=>{
+   
     return(
-        <>
+      <Provider store={store}>
+      
         <Header/>
         <Outlet/>
         <Footer/>
-        </>
+        </Provider>
     )
 }
 const appRouter=createBrowserRouter([
