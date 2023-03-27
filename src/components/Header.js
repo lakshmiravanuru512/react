@@ -50,6 +50,7 @@ const  Header=()=>{
                     
                 </ul>
                 </div>
+                
                 <h1 className="p-10 m-2 font-bold text-orange-400">{user.name}</h1>
                 {
             (isLoggedIn)?  <button className="bg-green-200 rounded-md" onClick={()=>setIsLoggedIn(false)}>Logout</button> :

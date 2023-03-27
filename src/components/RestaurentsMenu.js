@@ -12,8 +12,8 @@ const RestaurentMenu=()=>{
 
     const dispatch=useDispatch();
 
-    const handleAddItem=()=>{
-        dispatch(addItem("Grapes"))
+    const addFoodItem=(item)=>{
+        dispatch(addItem(item))
     }
     
     return (!restaurant)? <Shimmer/> : (
@@ -27,14 +27,13 @@ const RestaurentMenu=()=>{
             <h3>{restaurant?.avgRating}</h3>
             <h3>{restaurant.costForTwoMsg}</h3>
             </div>
-            <div>
-                <button className="p-2 m-2 bg-green-400" onclick={()=>handleAddItem()}>AddItem</button>
-            </div>
+        
             <div>
                 <h1>Menu</h1>
                 <ul>
                     {
-                        Object.values(restaurant.menu.items).map((item)=><li key={item.id}>{item.name}</li>)
+                        Object.values(restaurant.menu.items).map((item)=>
+                        <li key={item.id}>{item.name} -<button className="p-2 m-2 bg-yellow-200" onclick={()=>addFoodItem()}>Add</button></li>)
                     }
                 </ul>
             </div>
