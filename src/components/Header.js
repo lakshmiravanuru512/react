@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 import store from "../utils/store";
+import useOnline from "../utils/useOnline"
 
 
 const loggedInUser=()=>{
@@ -13,7 +14,7 @@ const loggedInUser=()=>{
 
 const Title=()=>(
     <a href="/">
-        <img
+        <img  data-testid="logo"
     className="h-28 p-2 space-x-5 "
      alt="logo"
      src={Logo}/>
@@ -23,6 +24,8 @@ const Title=()=>(
 const  Header=()=>{
     
     const[isLoggedIn,setIsLoggedIn]=useState(false);
+
+    const isOnline=useOnline();
     const {user}=useContext(UserContext)
     const cartItems=useSelector(store=>store.cart.items)
     return(
@@ -45,11 +48,12 @@ const  Header=()=>{
                     <li>Instamart</li>
                     </Link>
                     <Link to="/cart">
-                    <li className="px-2">Cart - {cartItems.length} items</li>
+                    <li className="px-2" data-testid="cart">Cart - {cartItems.length} items</li>
                     </Link>
                     
                 </ul>
                 </div>
+                <h1 data-testid="online-status" >{isOnline?"Yes":"No"}</h1>
                 
                 <h1 className="p-10 m-2 font-bold text-orange-400">{user.name}</h1>
                 {
