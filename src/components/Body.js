@@ -49,7 +49,7 @@ const Body=()=>{
             /> 
             
              
-             <button className="search-btn px-2 m-3 bg-red-400 hover:bg-red-500  rounded-lg "
+             <button  data-testid="search-btn" className="search-btn px-2 m-3 bg-red-400 hover:bg-red-500  rounded-lg "
              onClick={()=>{
                const data=filterData(searchText,allRestaurents);
                setFilteredRestaurents(data);
